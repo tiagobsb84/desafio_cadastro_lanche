@@ -81,6 +81,7 @@ export const Button = styled.button`
     font-size: 1.0625rem;
     font-weight: 900;
     line-height: 0.15625rem; /* 14.706% */
+    border: none;
 
     cursor: pointer;
 
@@ -91,4 +92,13 @@ export const Button = styled.button`
     &:active {
         opacity: .5;
     }
+`;
+
+export const Paragrafo = styled.p`
+    color: white;
+`;
+
+export const IconeLixeira = styled.img`
+    background: white;
+    cursor: pointer;
 `;
