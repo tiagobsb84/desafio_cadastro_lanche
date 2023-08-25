@@ -22,6 +22,18 @@ app.post('/pedidos', (request, response) => {
     return response.status(201).json(criarPedido);
 })
 
-app.listen(port, () => {
-    console.log(`Porta: ${port}`);
-});
+//deletando pedido
+app.delete('/pedidos/:id', (request, response) => {
+    const {id} = request.params;
+    const checkId = listaPedidos.findIndex(use => use.id === id);
+    
+    if(checkId < 0) {
+        return response.status(404).json({error: 'Objeto não encontrado!'});
+    }
+
+    listaPedidos.splice(checkId, 1);
+
+    return response.status(204).json();
+})
+
+app.listen(port);
