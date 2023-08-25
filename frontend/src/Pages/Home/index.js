@@ -8,7 +8,8 @@ import {
     LabelInputs,
     LabelCadastro,
     InputCadastro,
-    Button
+    Button,
+    BoxButton
 } from "./style";
 
 import Logo from "../../assets/Logo-Burguer.png";
@@ -23,14 +24,16 @@ function pageHome() {
             <Main>
                 <LabelInputs>
                     <LabelCadastro>Pedido</LabelCadastro>
-                    <InputCadastro />
+                    <InputCadastro placeholder="1 Coca-Cola, 1-X Salada" />
                 </LabelInputs>
                 <LabelInputs>
                     <LabelCadastro>Nome do Cliente</LabelCadastro>
-                    <InputCadastro />
+                    <InputCadastro placeholder="Steve Jobs" />
                 </LabelInputs>
             </Main>
-            <Button>Novo Pedido</Button>
+            <BoxButton>
+                <Button>Novo Pedido</Button>
+            </BoxButton>
         </Container>
     );
 }
