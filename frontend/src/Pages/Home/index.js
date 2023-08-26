@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import axios from 'axios';
 
 import { 
@@ -19,6 +20,7 @@ const App = () => {
     const [users, setUsers] = useState([]);
     const inputNome = useRef();
     const inputPedido = useRef();
+    const history = useHistory();
 
     async function addNewPedido() {
         const {data: newUsers} = await axios.post('http://localhost:3001/pedidos', {
@@ -27,6 +29,8 @@ const App = () => {
         })
 
         setUsers([...users, newUsers]);
+
+        history.push('/pedidos');
     }
 
     return(

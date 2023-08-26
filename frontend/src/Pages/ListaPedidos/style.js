@@ -70,7 +70,7 @@ export const BoxButton = styled.div`
 `;
 
 export const Button = styled.button`
-    background: #D93856;
+    background: rgba(255, 255, 255, 0.14);
 
     width: 21.375rem;
     height: 4.25rem;
@@ -96,9 +96,23 @@ export const Button = styled.button`
 
 export const Paragrafo = styled.p`
     color: white;
+    border-radius: 0.875rem;
+    background: rgba(255, 255, 255, 0.25);
+
+    width: 21.375rem;
+    height: 6.3125rem;
+
+    color: #FFF;
+    font-size: 1.125rem;
+    font-weight: 300;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    margin-top: 1rem;
 `;
 
 export const IconeLixeira = styled.img`
-    background: white;
     cursor: pointer;
 `;

@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import axios from "axios";
 
 import LogoLista from "../../assets/logo-lista.png";
@@ -18,6 +19,7 @@ import {
 //Listando pedidos
 const ListaPedidos = () => {
     const [users, setUsers] = useState([]);
+    const history = useHistory();
 
     useEffect(() => {
         async function listaPedidos() {
@@ -37,6 +39,11 @@ const ListaPedidos = () => {
         setUsers(deletandoUser);
     }
 
+    //função do botão voltar
+    function voltarPagina() {
+        history.push('/');
+    }
+
     return(
         <Container>
             <Header>
@@ -47,13 +54,17 @@ const ListaPedidos = () => {
                 <ul>
                     {users.map((use) => (
                         <li key={use.id}>
-                            <Paragrafo>{use.nome} {use.pedido} <IconeLixeira onClick={() => deletandoPedido(use.id)} src={Lixeira} alt="icone lixeira" /></Paragrafo>
+                            <Paragrafo>
+                                {use.pedido} <br /><br />
+                                {use.nome} 
+                                <IconeLixeira onClick={() => deletandoPedido(use.id)} src={Lixeira} alt="icone lixeira" />
+                            </Paragrafo>
                         </li>
                     ))}
                 </ul>
             </Main>
             <BoxButton>
-                <Button>Novo Pedido</Button>
+                <Button onClick={voltarPagina}>Voltar</Button>
             </BoxButton>
         </Container>
     )
