@@ -1,9 +1,11 @@
 const express = require('express');
 const app = express();
 const uuid = require('uuid');
+const cors = require('cors');
 const port = 3001;
 
 app.use(express.json());
+app.use(cors());
 
 const listaPedidos = [];
 

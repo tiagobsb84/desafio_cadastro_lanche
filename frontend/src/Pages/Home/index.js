@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import axios from 'axios';
 
 import { 
     Container,
@@ -22,13 +23,15 @@ const App = () => {
     const inputNome = useRef();
     const inputPedido = useRef();
 
-    function addNewPedido() {
-        const nome = inputNome.current.value;
-        const pedido = inputPedido.current.value;
+    async function addNewPedido() {
+        const {data: newUsers} = await axios.post('http://localhost:3001/pedidos', {
+            nome: inputNome.current.value,
+            pedido: inputPedido.current.value
+        })
 
-        const novoPedido = {id: Math.random(), nome, pedido};
+        console.log(newUsers);
 
-        setUsers([...users, novoPedido]);
+        setUsers([...users, newUsers]);
     }
 
     function deletandoPedido(userId) {
