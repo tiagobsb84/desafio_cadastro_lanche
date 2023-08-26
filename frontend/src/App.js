@@ -1,10 +1,9 @@
-
-import PageHome from "./Pages/Home/index";
+import Routes from "./Routes";
 
 function App() {
   return (
     <>
-      <PageHome />
+      <Routes />
     </>
   )
 }

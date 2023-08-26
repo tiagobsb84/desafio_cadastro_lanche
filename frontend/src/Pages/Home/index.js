@@ -10,13 +10,10 @@ import {
     LabelCadastro,
     InputCadastro,
     Button,
-    BoxButton,
-    Paragrafo,
-    IconeLixeira
+    BoxButton
 } from "./style";
 
 import Logo from "../../assets/Logo-Burguer.png";
-import Lixeira from "../../assets/lixeira.svg";
 
 const App = () => {
     const [users, setUsers] = useState([]);
@@ -29,15 +26,7 @@ const App = () => {
             pedido: inputPedido.current.value
         })
 
-        console.log(newUsers);
-
         setUsers([...users, newUsers]);
-    }
-
-    function deletandoPedido(userId) {
-        const deletandoUser = users.filter(use => use.id !== userId);
-
-        setUsers(deletandoUser);
     }
 
     return(
@@ -58,15 +47,7 @@ const App = () => {
             </Main>
             <BoxButton>
                 <Button onClick={addNewPedido}>Novo Pedido</Button>
-            </BoxButton>
-            <ul>
-                {users.map((use) => (
-                    <li key={use.id}>
-                        <Paragrafo>{use.nome} {use.pedido} <IconeLixeira onClick={() => deletandoPedido(use.id)} src={Lixeira} alt="icone lixeira" /></Paragrafo>
-                    </li>
-                ))}
-            </ul>
-            
+            </BoxButton>   
         </Container>
     );
 }
